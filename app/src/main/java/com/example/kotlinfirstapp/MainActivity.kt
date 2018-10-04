@@ -1,5 +1,6 @@
 package com.example.kotlinfirstapp
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,11 +26,13 @@ class MainActivity : AppCompatActivity() {
         lvMain.setAdapter(adapter)
     }
 
-    fun toastMe(view: View) {
-        // Get the text view
-        val contentText = findViewById<EditText>(R.id.contentText)
+    fun goToMenu(view: View) {
+        val myToast = Toast.makeText(this, "goToMenu", Toast.LENGTH_SHORT)
 
-        val myToast = Toast.makeText(this, contentText.text, Toast.LENGTH_SHORT)
-        myToast.show()
+        // Create an Intent to start the second activity
+        val menuIntent = Intent(this, menuActivity::class.java)
+
+        // Start the new activity.
+        startActivity(menuIntent)
     }
 }
